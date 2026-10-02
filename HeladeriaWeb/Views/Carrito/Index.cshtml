@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HeladeriaWeb.Models.CarritoItem>
+
+@{
+    ViewData["Title"] = "Carrito de Compras";
+}
+
+<div class="container mt-4">
+    <h2>🛒 Carrito de Compras - Heladería</h2>
+    <hr />
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Mensaje"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info text-center py-4">
+            <h4>Tu carrito está vacío</h4>
+            <p>¡Explora nuestros deliciosos helados y agrega tus favoritos!</p>
+            <a class="btn btn-primary mt-2" asp-controller="Productos" asp-action="Index">Ver Productos</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio Unitario</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NombreProducto</td>
+                            <td>$@item.Precio.ToString("0.00")</td>
+                            <td>@item.Cantidad</td>
+                            <td>$@item.Subtotal.ToString("0.00")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <div>
+                <h3>Total a Pagar: <span class="text-success">$@Model.Sum(x => x.Subtotal).ToString("0.00")</span></h3>
+            </div>
+            <div>
+                <a class="btn btn-outline-danger me-2" asp-controller="Carrito" asp-action="Limpiar">Vaciar Carrito</a>
+
+                <form asp-controller="Carrito" asp-action="SimularCheckout" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-success btn-lg">Finalizar Compra 🚀</button>
+                </form>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,31 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0 p-4 bg-white text-center">
+                <div class="fs-1 mb-2">⚠️</div>
+                <h2 class="fw-bold text-danger mb-3">¿Estás seguro de eliminar este producto?</h2>
+                <p class="text-muted">El producto dejará de estar disponible en el catálogo de la heladería.</p>
+
+                <div class="card bg-light border-0 p-3 mb-4 text-start">
+                    <p class="mb-1"><strong>Nombre:</strong> @Model.Nombre</p>
+                    <p class="mb-1"><strong>Categoría:</strong> @Model.Categoria</p>
+                    <p class="mb-0"><strong>Precio:</strong> $@Model.PrecioVenta</p>
+                </div>
+
+                <form asp-action="EliminarProductoConfirmado" method="post">
+                    <input type="hidden" name="id" value="@Model.IdProducto" />
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Productos" class="btn btn-secondary px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-danger px-4 fw-bold">Sí, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

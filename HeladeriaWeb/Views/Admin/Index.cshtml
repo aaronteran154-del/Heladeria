@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<div class="container my-5">
+    <div class="p-5 mb-4 bg-dark text-white rounded-3 shadow">
+        <div class="container-fluid py-3">
+            <h1 class="display-5 fw-bold text-warning">🛡️ Panel de Administración</h1>
+            <p class="col-md-8 fs-4 text-light">
+                Bienvenido, Administrador. Desde aquí puedes gestionar de forma centralizada todos los productos y clientes de la heladería.
+            </p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center p-4">
+                    <div class="fs-1 mb-2">🍨</div>
+                    <h3 class="h4 fw-bold">Gestionar Productos</h3>
+                    <p class="text-muted">Crea, edita, actualiza precios y elimina productos del catálogo.</p>
+                    <a class="btn btn-dark px-4 fw-bold" asp-controller="Admin" asp-action="Productos">Administrar Productos</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center p-4">
+                    <div class="fs-1 mb-2">👥</div>
+                    <h3 class="h4 fw-bold">Gestionar Clientes</h3>
+                    <p class="text-muted">Visualiza la base de datos de clientes registrados y sus puntos de fidelidad.</p>
+                    <a class="btn btn-dark px-4 fw-bold" asp-controller="Admin" asp-action="Clientes">Administrar Clientes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

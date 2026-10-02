@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="api_helados/api_helados.csproj" Id="486b3f92-71d0-4fb2-86f1-f1b3237e19d5" />
+  <Project Path="Heladeria/Heladeria.csproj" />
+  <Project Path="HeladeriaWeb/HeladeriaWeb.csproj" Id="e3574e3d-5ca4-4186-a428-29a207adcc2f" />
+</Solution>

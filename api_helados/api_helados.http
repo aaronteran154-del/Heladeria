@@ -1,0 +1,6 @@
+@api_helados_HostAddress = http://localhost:5161
+
+GET {{api_helados_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
